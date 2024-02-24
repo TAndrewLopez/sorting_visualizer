@@ -15,7 +15,7 @@ const merge = (
     let k = begin;
 
     while (i < left.length && j < right.length) {
-        animations.push([[begin + 1, middle + j], false]);
+        animations.push([[begin + i, middle + j], false]);
         if (left[i] <= right[j]) {
             animations.push([[k, left[i]], true]);
             array[k] = left[i];
@@ -29,9 +29,9 @@ const merge = (
     }
     while (i < left.length) {
         animations.push([[begin + i], false])
-        animations.push([[k, right[j]], true]);
-        array[k] = right[j];
-        j += 1;
+        animations.push([[k, left[i]], true]);
+        array[k] = left[i];
+        i += 1;
         k += 1;
     }
     while (j < right.length) {
